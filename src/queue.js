@@ -15,18 +15,18 @@ const { ListNode } = require('../extensions/list-node.js');
  */
 class Queue {
 
-  constructor(data) {
-    this = new ListNode();
+  constructor() {
+    this.node = new ListNode();
   }
 
   getUnderlyingList() {
-    return this;
+    return this.node;
   }
 
   enqueue(value) {
-    if (this.value === undefined) this.value = value
+    if (this.node.value === undefined) this.node.value = value
     else {
-      let current = this;
+      let current = this.node;
       while (current.next !== null) {
         current = current.next;
       }
@@ -36,8 +36,8 @@ class Queue {
   }
 
   dequeue() {
-    const res = this.value;
-    this = this.next;
+    const res = this.node.value;
+    this.node = this.node.next;
     return res;
   }
 }
